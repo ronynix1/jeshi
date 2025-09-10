@@ -1,0 +1,45 @@
+/* WebContent/style.css */
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(to bottom right, #007BFF, #FFD700); /* Blue to Yellow */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.container {
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  width: 300px;
+  text-align: center;
+}
+
+h2 {
+  color: #007BFF;
+  margin-bottom: 20px;
+}
+
+input[type="text"], input[type="submit"] {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+input[type="submit"] {
+  background-color: #FFD700;
+  color: #000;
+  font-weight: bold;
+  cursor: pointer;
+  border: none;
+}
+
+input[type="submit"]:hover {
+  background-color: #FFC107;
+}
+

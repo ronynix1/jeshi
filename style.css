@@ -1,45 +1,71 @@
-/* WebContent/style.css */
 body {
-  font-family: 'Segoe UI', sans-serif;
-  background: linear-gradient(to bottom right, #007BFF, #FFD700); /* Blue to Yellow */
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(to right, #1e3c72, #2a5298); /* Blue gradient */
+  color: #fff;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
-  margin: 0;
 }
 
 .container {
-  background: white;
+  background: #ffffff;
+  color: #333;
   padding: 30px;
-  border-radius: 10px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  width: 300px;
+  border-radius: 15px;
+  width: 400px;
+  box-shadow: 0 8px 15px rgba(0,0,0,0.3);
   text-align: center;
 }
 
-h2 {
-  color: #007BFF;
+h1 {
+  color: #1e3c72;
   margin-bottom: 20px;
 }
 
-input[type="text"], input[type="submit"] {
+label {
+  display: block;
+  margin: 10px 0 5px;
+  text-align: left;
+}
+
+input, select {
   width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #1e3c72;
+  margin-bottom: 15px;
+}
+
+button {
+  background: #1e3c72;
+  color: white;
   padding: 12px;
-  margin: 10px 0;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-}
-
-input[type="submit"] {
-  background-color: #FFD700;
-  color: #000;
-  font-weight: bold;
-  cursor: pointer;
+  width: 100%;
   border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 10px;
 }
 
-input[type="submit"]:hover {
-  background-color: #FFC107;
+button:hover {
+  background: #ff6600; /* Orange hover */
 }
+
+.info-box {
+  background: #f4f7fc;
+  padding: 15px;
+  border-radius: 8px;
+  margin-top: 20px;
+  text-align: left;
+  font-size: 14px;
+}
+
+.highlight {
+  color: #ff6600;
+  font-weight: bold;
+}
+
 

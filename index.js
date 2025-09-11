@@ -1,39 +1,39 @@
-// src/com/cubemovers/servlets/LoginServlet.java
-package com.cubemovers.servlets;
+// Dummy worker database (simulation)
+const workers = {
+  "12345": {
+    name: "John Doe",
+    tshirt: "T-101",
+    type: "Casual",
+    leader: "Mr. Brian",
+    phone: "0712345678"
+  },
+  "67890": {
+    name: "Mary Atieno",
+    tshirt: "T-202",
+    type: "Permanent",
+    leader: "Mrs. Jane",
+    phone: "0798765432"
+  }
+};
 
-import java.io.*;
-import javax.servlet.*;
-import javax.servlet.http.*;
-import java.sql.*;
+function login() {
+  const id = document.getElementById("idNumber").value;
+  const phone = document.getElementById("phone").value;
+  const worker = workers[id];
 
-public class LoginServlet extends HttpServlet {
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-        throws ServletException, IOException {
+  if (worker && worker.phone === phone) {
+    document.getElementById("nameOut").textContent = worker.name;
+    document.getElementById("tshirtOut").textContent = worker.tshirt;
+    document.getElementById("typeOut").textContent = worker.type;
+    document.getElementById("leaderOut").textContent = worker.leader;
 
-        String idNumber = request.getParameter("idNumber");
+    // Payment calculation
+    let pay = worker.type === "Casual" ? "Ksh 775 / day" : "Ksh 30,000 / month";
+    document.getElementById("payOut").innerHTML = `<span class="highlight">${pay}</span>`;
 
-        try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection con = DriverManager.getConnection(
-                "jdbc:mysql://localhost:3306/cube_movers_db", "root", "your_password");
-
-            PreparedStatement ps = con.prepareStatement(
-                "SELECT * FROM workers WHERE id_number = ?");
-            ps.setString(1, idNumber);
-            ResultSet rs = ps.executeQuery();
-
-            if (rs.next()) {
-                request.setAttribute("name", rs.getString("name"));
-                request.setAttribute("job", rs.getString("assigned_job"));
-                RequestDispatcher rd = request.getRequestDispatcher("dashboard.jsp");
-                rd.forward(request, response);
-            } else {
-                response.sendRedirect("index.html");
-            }
-
-            con.close();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
+    document.getElementById("workerInfo").style.display = "block";
+  } else {
+    alert("Worker not found or phone number mismatch!");
+  }
 }
+

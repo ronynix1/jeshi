@@ -1,38 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cube Movers Ltd - Worker Portal</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cube Movers Check-In</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <header>
+    <h1>Cube Movers Worker Check-In</h1>
+  </header>
 
-  <div class="container">
-    <h1>CUBE MOVERS LIMITED</h1>
-    <h3>Worker Check-in Portal</h3>
+  <main>
+    <form id="checkinForm">
+      <label for="workerName">Worker Name:</label>
+      <input type="text" id="workerName" name="workerName" required />
 
-    <!-- Login Section -->
-    <label for="idNumber">ID Number</label>
-    <input type="text" id="idNumber" placeholder="Enter your ID number">
+      <label for="workerType">Worker Type:</label>
+      <select id="workerType" name="workerType">
+        <option value="casual">Casual</option>
+        <option value="permanent">Permanent</option>
+      </select>
 
-    <label for="phone">Phone Number</label>
-    <input type="text" id="phone" placeholder="Enter phone number">
+      <label for="tshirtNumber">T-Shirt Number (1–500):</label>
+      <input type="number" id="tshirtNumber" name="tshirtNumber" min="1" max="500" required />
 
-    <button onclick="login()">Login</button>
+      <label for="jobAssigned">Job Assigned:</label>
+      <input type="text" id="jobAssigned" name="jobAssigned" required />
 
-    <!-- Worker Info Section -->
-    <div id="workerInfo" class="info-box" style="display:none;">
-      <p><strong>Name:</strong> <span id="nameOut"></span></p>
-      <p><strong>T-Shirt Number:</strong> <span id="tshirtOut"></span></p>
-      <p><strong>Worker Type:</strong> <span id="typeOut"></span></p>
-      <p><strong>Team Leader:</strong> <span id="leaderOut"></span></p>
-      <p><strong>Payment:</strong> <span id="payOut"></span></p>
-      <p><strong>Next Payment Dates:</strong> 3rd and 16th of every month</p>
-    </div>
-  </div>
+      <button type="submit">Check In</button>
+    </form>
 
-  <script src="script.js"></script>
+    <div id="responseMessage"></div>
+  </main>
+
+  <script src="index.js"></script>
 </body>
 </html>
 
